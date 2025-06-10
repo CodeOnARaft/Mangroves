@@ -18,7 +18,7 @@ bg : [3]u8 = { 90, 95, 100 }
 
 main :: proc() {
     rl.SetWindowState({ .WINDOW_RESIZABLE })
-    rl.InitWindow(720, 600, "Odin/Raylib/microui Demo")
+    rl.InitWindow(720, 600, "Mangroves")
     defer rl.CloseWindow()
 
     ctx := rlmu.init_scope() // same as calling, `rlmu.init(); defer rlmu.destroy()`
