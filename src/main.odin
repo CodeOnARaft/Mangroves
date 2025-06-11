@@ -27,21 +27,17 @@ main :: proc() {
     ctx := rlmu.init_scope() // same as calling, `rlmu.init(); defer rlmu.destroy()`
     bg : [3]u8 = { 90, 95, 100 }
 
-    for !rl.WindowShouldClose() {
-        defer free_all(context.temp_allocator)
-
-       
+    for !system.ProgramExit  {
+        defer free_all(context.temp_allocator)      
 
         rl.BeginDrawing(); defer rl.EndDrawing()
         rl.ClearBackground({ bg.r, bg.g, bg.b, 255 })
-        
-        rlmu.begin_scope()  // same as calling, `rlmu.begin(); defer rlmu.end()`
-        ui.DrawEditor(&system,ctx)
 
-        //demo windows
-        // ui.StyleWindow(ctx)
-        // ui.TestWindow(ctx,&system,&bg)
-       
+        rlmu.begin_scope()  // same as calling, `rlmu.begin(); defer rlmu.end()`
+
+        ui.DrawEditor(&system,ctx)
+ 
+       system.ShutDownInitialted = system.ShutDownInitialted || rl.WindowShouldClose()
     } 
 }
 

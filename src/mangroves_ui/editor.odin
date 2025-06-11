@@ -10,12 +10,15 @@ import utils "../mangroves_utils"
 
 
 
-DrawEditor :: proc(system:^types.System, ctx : ^mu.Context) {
-  if mu.begin_window(ctx, "x", mu.Rect{ 10, 10, 300, 200 }) {
-        defer mu.end_window(ctx)
-  }
+DrawEditor :: proc(system:^types.System, ctx : ^mu.Context) {  
 
     DrawMainMenu(system, ctx)
-    utils. DrawLogWindow(system,ctx)
 
+    if system.LogShowWindow {
+       utils. DrawLogWindow(system,ctx)
+    }
+
+    if system.ShutDownInitialted {
+            system.ProgramExit = true
+    }
 }
