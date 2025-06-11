@@ -18,12 +18,14 @@ main :: proc() {
     defer utils.DestroySystem(&system)
 
     rl.SetWindowState({ .WINDOW_RESIZABLE })
-    rl.InitWindow(720, 600, "Mangroves")
+    rl.InitWindow(720, 600, "Mangroves Editor")
     rl.MaximizeWindow()
     defer rl.CloseWindow()
 
+    utils.ProjectUpdated(&system)
+
     ctx := rlmu.init_scope() // same as calling, `rlmu.init(); defer rlmu.destroy()`
-bg : [3]u8 = { 90, 95, 100 }
+    bg : [3]u8 = { 90, 95, 100 }
 
     for !rl.WindowShouldClose() {
         defer free_all(context.temp_allocator)
@@ -37,8 +39,8 @@ bg : [3]u8 = { 90, 95, 100 }
         ui.DrawEditor(&system,ctx)
 
         //demo windows
-        ui.style_window(ctx)
-        ui.test_window(ctx,&system,&bg)
+        // ui.StyleWindow(ctx)
+        // ui.TestWindow(ctx,&system,&bg)
        
     } 
 }

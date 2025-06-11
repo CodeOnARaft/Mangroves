@@ -10,6 +10,12 @@ InitSystem :: proc() -> types.System {
     MainMenuInfo = types.MainMenuInformation{
       FileSubOpen= false,
     },
+    LogUpdated = false,
+    CurrentProject = types.Project{
+      name = "New Project",
+      description = "",
+      version = "",
+    },
   }
 }
 

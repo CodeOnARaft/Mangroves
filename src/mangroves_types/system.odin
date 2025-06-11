@@ -8,4 +8,5 @@ System :: struct {
     LogInfo: strings.Builder,
     LogUpdated : bool, // Indicates if the log has been updated since the last check
     MainMenuInfo : MainMenuInformation,
+    CurrentProject: Project,
 }

@@ -8,7 +8,7 @@ import mu "vendor:microui"
 import utils "../mangroves_utils"
 import types "../mangroves_types"
 
-style_window :: proc(ctx : ^mu.Context) {
+StyleWindow :: proc(ctx : ^mu.Context) {
     Style_Color :: struct {
         label: string, 
         type: mu.Color_Type
@@ -52,7 +52,7 @@ style_window :: proc(ctx : ^mu.Context) {
     }
 }
 
-test_window :: proc(ctx: ^mu.Context,system: ^types.System,bg : ^[3]u8) {
+TestWindow :: proc(ctx: ^mu.Context,system: ^types.System,bg : ^[3]u8) {
     if mu.begin_window(ctx, "Demo Window", mu.Rect { 40, 40, 300, 450 }) {
         defer mu.end_window(ctx)
 
