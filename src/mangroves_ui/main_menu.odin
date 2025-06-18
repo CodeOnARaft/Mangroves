@@ -6,6 +6,7 @@ import rl "vendor:raylib"
 import util "../mangroves_utils"
 import mu "vendor:microui"
 import types "../mangroves_types"
+import dialogs "./mangroves_ui_dialogs"
 
 
 
@@ -67,8 +68,8 @@ DrawMainMenu :: proc(system: ^types.System,ctx : ^mu.Context) {
             
             mu.layout_row(ctx, []i32{ -1 }, 25) // Fill the width
             
-            if .SUBMIT in mu.button(ctx, "Undo") {
-                //util.Undo(system)
+            if .SUBMIT in mu.button(ctx, "Project Settings") {
+                system.DialogDraw = dialogs.dialog_draw_project_settings
             }
             if .SUBMIT in mu.button(ctx, "Redo") {
                 //util.Redo(system)

@@ -18,7 +18,7 @@ main :: proc() {
     defer utils.DestroySystem(&system)
 
     rl.SetWindowState({ .WINDOW_RESIZABLE })
-    rl.InitWindow(720, 600, "Mangroves Editor")
+    rl.InitWindow(1920, 1080, "Mangroves Editor")
     rl.MaximizeWindow()
     defer rl.CloseWindow()
 

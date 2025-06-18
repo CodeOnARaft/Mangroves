@@ -13,11 +13,16 @@ import utils "../mangroves_utils"
 DrawEditor :: proc(system:^types.System, ctx : ^mu.Context) {  
 
     DrawMainMenu(system, ctx)
-
-    if system.LogShowWindow {
-       utils. DrawLogWindow(system,ctx)
+    if system.DialogUpdate != nil {
+        system.DialogUpdate(system, ctx) // Call the dialog draw function
+    }
+    if system.DialogDraw != nil {
+        system.DialogDraw(system, ctx) // Call the dialog draw function
     }
 
+    if system.LogShowWindow {
+       utils.DrawLogWindow(system,ctx)
+    }
     if system.ShutDownInitialted {
             system.ProgramExit = true
     }
